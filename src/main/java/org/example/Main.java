@@ -8,13 +8,13 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        //Sudoku newSudoku = new Sudoku(Reader.GetSudokuFromFile("sudoku.txt"));
+        Sudoku newSudoku = new Sudoku(Reader.GetSudokuFromFile("sudoku.txt"));
 
-        Sudoku sudoku = null;
+        /*Sudoku sudoku = null;
         while (sudoku == null) {
             sudoku = new Sudoku(Reader.GetSudokuFromKeyboard());
             System.out.println("Повторите ввод.");
-        }
+        }*/
 
         Sudoku result = new Sudoku(Solver.solveSudoku(sudoku));
 
