@@ -4,6 +4,7 @@ import java.io.*;
 
 public class Writer {
     public static void PrintToConsole(Sudoku sudoku) {
+        System.out.println("Решение заданного судоку:");
         String strSudoku = sudoku.toString();
         System.out.println(strSudoku);
     }

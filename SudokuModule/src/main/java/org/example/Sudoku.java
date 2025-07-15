@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.InputMismatchException;
 
 public class Sudoku {
@@ -27,7 +29,7 @@ public class Sudoku {
         board = new int[MAX_LENGTH][MAX_LENGTH];
         for (int i = 0; i < MAX_LENGTH; i++) {
             for (int j = 0; j < MAX_LENGTH; j++) {
-                board[i][j] = inputArr[i][j] - '0';
+                board[i][j] = inputArr[i][j];
                 if (!SudokuHelper.isValid(board, i, j, board[i][j])) {
                     throw new InputMismatchException();
                 }
