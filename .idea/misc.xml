@@ -5,6 +5,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/IOModule/pom.xml" />
+        <option value="$PROJECT_DIR$/SudokuModule/pom.xml" />
       </list>
     </option>
   </component>
