@@ -12,6 +12,10 @@ public class Sudoku {
     private static final Logger logger = LogManager.getLogger(Sudoku.class);
     private final int[][] board;
 
+    public Sudoku() {
+        board = new int[MAX_LENGTH][MAX_LENGTH];
+    }
+
     public Sudoku(char[][] inputArr) {
         board = new int[MAX_LENGTH][MAX_LENGTH];
         for (int i = 0; i < MAX_LENGTH; i++) {
