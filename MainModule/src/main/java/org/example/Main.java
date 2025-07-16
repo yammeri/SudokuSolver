@@ -8,11 +8,11 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        Sudoku sudoku = new Sudoku(Reader.GetSudokuFromKeyboard());
+        Sudoku sudoku = new Sudoku(Reader.getSudokuFromKeyboard());
 
         Sudoku result = new Sudoku(Solver.solveSudoku(sudoku));
 
         System.out.println("-=".repeat(10));
-        Writer.PrintToConsole(result);
+        Writer.printToConsole(result);
     }
 }

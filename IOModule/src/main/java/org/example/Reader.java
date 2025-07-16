@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 public class Reader {
     private static final Logger logger = LogManager.getLogger(Reader.class);
-    public static char[][] GetSudokuFromKeyboard() {
+    public static char[][] getSudokuFromKeyboard() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Введите частично заполненное судоку");
-        PrintRules();
+        printRules();
 
         char[] bufNums;
         char[][] resBoard = new char[Sudoku.MAX_LENGTH][Sudoku.MAX_LENGTH];
@@ -29,9 +29,9 @@ public class Reader {
         return resBoard;
     }
 
-    public static char[][] GetSudokuFromFile() {
+    public static char[][] getSudokuFromFile() {
         char[][] resBoard = new char[Sudoku.MAX_LENGTH][Sudoku.MAX_LENGTH];
-        String fileName = InputExistFileName();
+        String fileName = (new IOHelper()).inputExistFileName();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
             String line;
@@ -59,30 +59,9 @@ public class Reader {
         return resBoard;
     }
 
-    private static void PrintRules() {
+    private static void printRules() {
         System.out.println("Судоку состоит из 9 строк, каждая строка содержит 9 символов, символы разделяются одним пробелом");
         System.out.println("На места незаполненных ячеек вводится символ '.'");
         System.out.println("Допустимые символы: цифры от 1 до 9 и '.'");
-    }
-
-    private static String InputExistFileName() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Введите имя текстового файла для чтения судоку");
-
-        String curFileName = null;
-        boolean isExist = false;
-
-        while (!isExist) {
-            curFileName = sc.nextLine();
-            File curFile = new File(curFileName);
-            isExist = curFile.exists();
-            if (!isExist) {
-                logger.info("Попытка ввода имени несуществующего файла для чтения, запрошен повтор ввода");
-                System.out.println("Файла с таким именем не существует. Повторите ввод...");
-            }
-        }
-        logger.info("Успешный ввод имени файла");
-        return curFileName;
     }
 }

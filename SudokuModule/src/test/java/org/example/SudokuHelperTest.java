@@ -1,9 +1,15 @@
 package org.example;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class SudokuHelperTest {
+    private SudokuHelper sudokuHelper;
+    @BeforeEach
+    void setUp() {
+        sudokuHelper = new SudokuHelper();
+    }
 
     @Test
     void isValid_InColumn() {
@@ -13,7 +19,7 @@ class SudokuHelperTest {
             sudokuBox[i][0] = i;
         }
 
-        Assertions.assertFalse(SudokuHelper.isValid(sudokuBox, 0, 0, 8));
+        Assertions.assertFalse(sudokuHelper.isValid(sudokuBox, 0, 0, 8));
     }
 
     @Test
@@ -24,20 +30,20 @@ class SudokuHelperTest {
             sudokuBox[0][i] = i;
         }
 
-        Assertions.assertFalse(SudokuHelper.isValid(sudokuBox, 0, 0, 8));
+        Assertions.assertFalse(sudokuHelper.isValid(sudokuBox, 0, 0, 8));
     }
 
     @Test
     void isCorrectLine_CorrectLine() {
         char[] nums = new char[] {'.', '2', '3', '4', '5', '6', '7', '8', '9'};
-        Assertions.assertTrue(SudokuHelper.isCorrectLine(nums));
+        Assertions.assertTrue(sudokuHelper.isCorrectLine(nums));
     }
 
     @Test
     void isCorrectLine_IncorrectLine() {
         char[] nums = new char[] {'.', '2', '3', '4', '5', '6', '7', '8'};
-        Assertions.assertFalse(SudokuHelper.isCorrectLine(nums));
+        Assertions.assertFalse(sudokuHelper.isCorrectLine(nums));
         nums = new char[] {'1', '2', 'a', '4', '5', '6', '7', '8', '9'};
-        Assertions.assertFalse(SudokuHelper.isCorrectLine(nums));
+        Assertions.assertFalse(sudokuHelper.isCorrectLine(nums));
     }
 }
